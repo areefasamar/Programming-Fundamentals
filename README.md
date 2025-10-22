@@ -1,3 +1,3 @@
 # Programming-Fundamentals
-Lab Assignment  
+Lab Assignments  
 CCP Project
