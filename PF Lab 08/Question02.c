@@ -1,64 +1,114 @@
-//Program to print the maxmimum occuring character
+//Program to find the maximum frequency characters
 #include<stdio.h>
+#include<string.h>
 int main (void)
 {
-	char name[100], course[100], combined[200], maxchar;
+	char name[100], course1[100], course2[100];
+	char maxchar_name, maxchar_course1, maxchar_course2;
 	int i, j, count;
-	
-	printf("Enter Your Full Name:");
-	fgets( name, 100, stdin);
+	int maxfrequency_name = 0, maxfrequency_course1 = 0, maxfrequency_course2 = 0;
 
-	printf("Enter Your Course Name: ");
-	fgets( course, 100, stdin);
-	
-	for ( i=0 ; name[i]!='\0' ; i++)
+	printf("Enter Your Full Name: ");
+	fgets(name, 100, stdin);
+
+	printf("Enter Your First Course Name: ");
+	fgets(course1, 100, stdin);
+
+	printf("Enter Your Second Course Name: ");
+	fgets(course2, 100, stdin);
+
+	for (i=0 ; name[i]!='\0' ; i++)
 	{
-		combined[i]=name[i];
-	}
-	
-	for ( j=0 ; course[j]!='\0' ; j++)
-	{
-		combined[i]=course[j];
-		i++;
-	}
-	
-	combined[i]='\0';
-	
-	for ( i=0 ; combined[i]!='\0' ; i++)
-	{
-		if ( combined[i]>='A' && combined[i]<='Z' )
+		if (name[i]>='A' && name[i]<='Z')
 		{
-			combined[i]=combined[i]+32;
+			name[i]=name[i]+32;
+		}
+    }
+
+	for (i=0 ; course1[i]!='\0' ; i++)
+	{
+		if (course1[i]>='A' && course1[i]<='Z')
+		{
+			course1[i]=course1[i]+32;
+		}
+    }
+
+	for (i=0 ; course2[i]!='\0' ; i++)
+	{
+		if (course2[i]>='A' && course2[i]<='Z')
+		{
+			course2[i]=course2[i]+32;
+		}
+    }
+
+	for (i=0 ; name[i]!='\0' ; i++)
+	{
+		if (name[i]==' ' || name[i]=='\n')
+			continue;
+		count=0;
+		for (j=0 ; name[j]!='\0' ; j++)
+		{
+			if (name[i]==name[j])
+				count++;
+		}
+		if (count>maxfrequency_name)
+		{
+			maxfrequency_name=count;
+			maxchar_name=name[i];
 		}
 	}
-	
-	int maxfrequency=0;
-	
-	for ( i=0 ; combined[i]!='\0' ;i++)
-	{  
-	    count=0;
-	
-        if ( combined[i]==' ' || combined[i]=='\n' )
-        {
-        	continue;
+
+	for (i=0 ; course1[i]!='\0' ; i++)
+	{
+		if (course1[i]==' ' || course1[i]=='\n')
+		{
+			continue;
 		}
 		
-		for ( j=0 ; combined[j]!='\0' ; j++ )
+		count=0;
+		
+		for (j=0 ; course1[j]!='\0' ; j++)
 		{
-			if ( combined[i]==combined[j] )
+			if (course1[i]==course1[j])
 			{
 				count++;
-			}
-		}
-		
-		if ( count > maxfrequency )
+	     	}
+	    }
+	    
+		if (count>maxfrequency_course1)
 		{
-			maxfrequency = count;
-			maxchar= combined[i];
+			maxfrequency_course1=count;
+			maxchar_course1=course1[i];
+		}
+	}
+
+	for (i=0 ; course2[i]!='\0' ; i++)
+	{
+		if (course2[i]==' ' || course2[i]=='\n')
+		{
+			continue;
 		}
 		
+		count=0;
+		
+		for (j=0 ; course2[j]!='\0' ; j++)
+		{
+			if (course2[i]==course2[j])
+		    {
+		   		count++;
+		    }
+		}
+		
+		if (count>maxfrequency_course2)
+		{
+			maxfrequency_course2=count;
+			maxchar_course2=course2[i];
+		}
 	}
-	printf("\nMaximum Frequency= %d\nMaximum Frquency Character= %c", maxfrequency, maxchar);
-	
+
+	printf("\nFull Name : Maximum Frequency = %d, Character = %c", maxfrequency_name, maxchar_name);
+	printf("\nCourse 1 : Maximum Frequency = %d, Character = %c", maxfrequency_course1, maxchar_course1);
+	printf("\nCourse 2 : Maximum Frequency = %d, Character = %c", maxfrequency_course2, maxchar_course2);
+
 	return 0;
 }
