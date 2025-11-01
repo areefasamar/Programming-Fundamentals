@@ -44,12 +44,18 @@ int main (void)
 	for (i=0 ; name[i]!='\0' ; i++)
 	{
 		if (name[i]==' ' || name[i]=='\n')
+		{
 			continue;
+		}
+		
 		count=0;
+		
 		for (j=0 ; name[j]!='\0' ; j++)
 		{
 			if (name[i]==name[j])
+			{
 				count++;
+			}
 		}
 		if (count>maxfrequency_name)
 		{
