@@ -113,7 +113,7 @@ void takeTest() {
                 break;
             case 3:
                 strcpy(entry.subject, "General Knowledge");
-                filename = "gk.txt";
+                filename = "general_knowledge.txt";
                 break;
             case 4:
                 strcpy(entry.subject, "Geography");
@@ -307,3 +307,4 @@ int compareScores(const void *a, const void *b) {
 
     return entryA->time_taken - entryB->time_taken;
 }
+
