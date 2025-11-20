@@ -257,14 +257,26 @@ void viewLeaderboard() {
 
     if (!fp) {
         printf(RED "No leaderboard data found!\n" RESET);
+
+        while (getchar() != '\n');
+
+        printf(LIGHT_CYAN "\nPress Enter to return to menu..." RESET);
+        getchar();
         return;
     }
 
-    while (fread(&entries[count], sizeof(LeaderboardEntry), 1, fp) == 1) count++;
+    while (fread(&entries[count], sizeof(LeaderboardEntry), 1, fp) == 1)
+        count++;
+
     fclose(fp);
 
     if (count == 0) {
         printf(RED "Leaderboard is empty!\n" RESET);
+
+        while (getchar() != '\n');
+
+        printf(LIGHT_CYAN "\nPress Enter to return to menu..." RESET);
+        getchar();
         return;
     }
 
@@ -280,8 +292,10 @@ void viewLeaderboard() {
     for (int i = 0; i < count; i++) {
         strftime(time_str, sizeof(time_str), "%Y-%m-%d %H:%M:%S",
                  localtime(&entries[i].test_date));
+
         char score_str[20];
         sprintf(score_str, "%d/%d", entries[i].score, entries[i].total_questions);
+
         printf(YELLOW "%-4d %-20s %-20s %-10s %-10d %-20s\n" RESET,
                i + 1,
                entries[i].name,
@@ -290,15 +304,19 @@ void viewLeaderboard() {
                entries[i].time_taken,
                time_str);
     }
+
     printf(CYAN "=========================================================================================\n" RESET);
     printf(LIGHT_CYAN "\nPress Enter to return to menu..." RESET);
-    getchar();
+
+    while (getchar() != '\n'); 
+    getchar();                
 }
+
 
 int compareScores(const void *a, const void *b) {
     LeaderboardEntry *entryA = (LeaderboardEntry *)a;
     LeaderboardEntry *entryB = (LeaderboardEntry *)b;
-
+	
     float percentA = (float)entryA->score / entryA->total_questions;
     float percentB = (float)entryB->score / entryB->total_questions;
 
@@ -307,4 +325,3 @@ int compareScores(const void *a, const void *b) {
 
     return entryA->time_taken - entryB->time_taken;
 }
-
