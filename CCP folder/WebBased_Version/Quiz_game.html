@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MCQ Quiz Program</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="screen">
+        <h1>MCQ QUIZ PROGRAM</h1>
+        <input type="text" id="username" placeholder="Enter Your Name">
+        <button id="start-btn">Take Test</button>
+        <button id="view-leaderboard-btn">View Leaderboard</button>
+        <button onclick="exitQuiz()">Exit</button>
+    </div>
+
+    <!-- Subject Selection Screen -->
+    <div id="subject-screen" class="screen hidden">
+        <h2>Welcome, <span id="user-name-display"></span>!</h2>
+        <h3>Select a Subject:</h3>
+        <div class="subject-buttons">
+            <button class="subject-btn" data-subject="ENGLISH">English</button>
+            <button class="subject-btn" data-subject="MATHEMATICS">Mathematics</button>
+            <button class="subject-btn" data-subject="GENERAL KNOWLEDGE">General Knowledge</button>
+            <button class="subject-btn" data-subject="GEOGRAPHY">Geography</button>
+        </div>
+        <button onclick="backToWelcome()">Back</button>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quiz-screen" class="screen hidden">
+        <div id="quiz-header">
+            <h3 id="progress-text"></h3>
+            <div id="progress-bar">
+                <div id="progress"></div>
+            </div>
+        </div>
+        <h2 id="question-text"></h2>
+        <div id="options"></div>
+        <button id="hint-btn" class="hint-btn">💡 Hint</button>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="result-screen" class="screen hidden">
+        <h2>QUIZ COMPLETED!</h2>
+        <p id="score-text"></p>
+        <button id="play-again-btn">Play Again</button>
+        <button id="view-leaderboard-btn-2">View Leaderboard</button>
+    </div>
+
+    <!-- Leaderboard Screen -->
+    <div id="leaderboard-screen" class="screen hidden">
+        <h2>Leaderboard</h2>
+        <div id="leaderboard-list"></div>
+        <button onclick="backToWelcome()">Back</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
