@@ -1,7 +1,0 @@
-# Check if the word "Python" is present in the sentence 
-sentence = input("Enter a sentence: ")
-
-if "Python" in sentence:
-    print("The sentence contains the word 'Python'")
-else:
-    print("The sentence does not contain the word 'Python'")
