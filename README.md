@@ -8,7 +8,7 @@ The primary goal of this coursework was to transition from conceptual problem-so
 
 ## 🛠️ Tech Stack & Tools
 
-* **Language:** C
+* **Language:** C 
 * **Compiler:** GCC / G++ 
 * **Development Environment:** Dev-C++ / VS Code  
 * **Concepts Covered:** Procedural Programming, Control Structures, Modularization, Arrays, Pointers, File I/O, and Memory Management.
